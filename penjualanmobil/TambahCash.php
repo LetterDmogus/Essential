@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         if($harga){
             $stmt2 = $conn->prepare("INSERT INTO beli_cash (kode_cash, ktp, kode_mobil, cash_tgl, cash_bayar) 
             VALUES (?,?,?,?,?)");
-            $stmt2->bind_param("ssssi", $kode_cash, $ktp, $kode_mobil, $cash_tgl, $harga);
+            $stmt2->bind_param("ssssd", $kode_cash, $ktp, $kode_mobil, $cash_tgl, $harga);
             $response['success'] = $stmt2->execute();
             $response['message'] = $response['success'] ? "Data berhasil disimpan" : "Gagal: ".$stmt2->error;
             $stmt2->close();
